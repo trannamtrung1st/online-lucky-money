@@ -54,7 +54,7 @@ function initializeUI() {
                     <img src="assets/images/envelope-${idx + 1}.jpg" class="w-100 h-100" />
                 </div>
             </div>`);
-            envElement.on('click', () => {
+            envElement.find('.envelope').on('click', () => {
                 $('#env-url').show();
                 data.params.set('i', idx);
                 const url = new URL(location.pathname, location.origin);
