@@ -1,9 +1,9 @@
-const money10kImgPath = "/assets/images/money-10k.jpg";
-const money20kImgPath = "/assets/images/money-20k.jpg";
-const money50kImgPath = "/assets/images/money-50k.jpg";
-const money100kImgPath = "/assets/images/money-100k.jpg";
-const money200kImgPath = "/assets/images/money-200k.jpg";
-const money500kImgPath = "/assets/images/money-500k.jpg";
+const money10kImgPath = "assets/images/money-10k.jpg";
+const money20kImgPath = "assets/images/money-20k.jpg";
+const money50kImgPath = "assets/images/money-50k.jpg";
+const money100kImgPath = "assets/images/money-100k.jpg";
+const money200kImgPath = "assets/images/money-200k.jpg";
+const money500kImgPath = "assets/images/money-500k.jpg";
 const moneyImagesMap = {
     [10]: money10kImgPath,
     [20]: money20kImgPath,
@@ -31,7 +31,7 @@ function initializeLuckyMoneyData() {
         const finalNumber = (Math.abs(rng.int32()) + number) % mappingObj.envelopes.length;
         const envelope = mappingObj.envelopes[finalNumber];
         data.envelope = envelope;
-        data.envelopeImg = `/assets/images/envelope-${finalNumber + 1}.jpg`;
+        data.envelopeImg = `assets/images/envelope-${finalNumber + 1}.jpg`;
     }
     return data;
 }
@@ -47,14 +47,14 @@ function initializeUI() {
         </div>`);
         const moneyContainer = $(`<div class="col-md-3 d-flex flex-column justify-content-center"></div>`);
         data.envelope.moneys.forEach(money => {
-            moneyContainer.append(`<img src="/assets/images/money-${money}k.jpg" class="w-100 h-auto" />`);
+            moneyContainer.append(`<img src="assets/images/money-${money}k.jpg" class="w-100 h-auto" />`);
         });
         envContainer.append(moneyContainer);
     } else {
         data.mapping.envelopes.forEach((_, idx) => {
             const envElement = $(`<div class="col-md-3 d-flex justify-content-center">
                 <div class="envelope">
-                    <img src="/assets/images/envelope-${idx + 1}.jpg" class="w-100 h-100" />
+                    <img src="assets/images/envelope-${idx + 1}.jpg" class="w-100 h-100" />
                 </div>
             </div>`);
             envElement.on('click', () => {
