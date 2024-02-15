@@ -60,7 +60,7 @@ function initializeUI() {
             envElement.on('click', () => {
                 $('#env-url').show();
                 data.params.set('n', idx);
-                const url = new URL('', location.origin);
+                const url = new URL(location.pathname, location.origin);
                 url.search = data.params.toString();
                 $('#env-url__link').attr('href', url.toString());
                 $('#env-url__number').html(idx + 1);
