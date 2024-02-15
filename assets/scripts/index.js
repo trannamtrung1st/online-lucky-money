@@ -25,13 +25,10 @@ function initializeLuckyMoneyData() {
         envIdx += 1;
         return new Math.seedrandom(seed + envIdx).int32();
     })
-    const number = parseInt(params.get('n'));
-    if (typeof number === 'number') {
-        const rng = new Math.seedrandom(seed);
-        const finalNumber = (Math.abs(rng.int32()) + number) % mappingObj.envelopes.length;
-        const envelope = mappingObj.envelopes[finalNumber];
-        data.envelope = envelope;
-        data.envelopeImg = `assets/images/envelope-${finalNumber + 1}.jpg`;
+    const selectedIdx = parseInt(params.get('i'));
+    if (typeof selectedIdx === 'number') {
+        data.envelope = mappingObj.envelopes[selectedIdx];
+        data.envelopeImg = `assets/images/envelope-${selectedIdx + 1}.jpg`;
     }
     return data;
 }
@@ -59,7 +56,7 @@ function initializeUI() {
             </div>`);
             envElement.on('click', () => {
                 $('#env-url').show();
-                data.params.set('n', idx);
+                data.params.set('i', idx);
                 const url = new URL(location.pathname, location.origin);
                 url.search = data.params.toString();
                 $('#env-url__link').attr('href', url.toString());
